@@ -1,0 +1,83 @@
+{% extends "admin/base_site.html" %}
+{% load i18n admin_urls static %}
+
+{% block content %}
+<div class="module">
+    <h2>Import Members from CSV</h2>
+    <p><a href="{% url 'admin:download_sample_csv' %}" class="button">Download Sample CSV</a></p>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-row">
+            <label for="csv_file">Select CSV File:</label>
+            <input type="file" name="csv_file" id="csv_file" accept=".csv" required>
+        </div>
+        <div class="form-row">
+            <p><strong>CSV Format:</strong> The CSV should have columns: first_name, last_name, contact_1, contact_2, gender, email, category</p>
+            <p>Gender should be 'M' or 'F'. Category defaults to 'Member' if not specified.</p>
+        </div>
+        <div class="submit-row">
+            <input type="submit" value="Import Members" class="default">
+            <a href="{% url 'admin:app_member_changelist' %}" class="cancel-link">Cancel</a>
+        </div>
+    </form>
+</div>
+{% endblock %}
+
+{% block extrastyle %}
+{{ block.super }}
+<style>
+.module {
+    max-width: 600px;
+    margin: 0 auto;
+}
+.form-row {
+    margin-bottom: 15px;
+}
+.form-row label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.form-row input[type="file"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.submit-row {
+    text-align: center;
+    margin-top: 20px;
+}
+.submit-row input[type="submit"] {
+    background-color: #79aec8;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.submit-row input[type="submit"]:hover {
+    background-color: #5dade2;
+}
+.cancel-link {
+    margin-left: 10px;
+    color: #666;
+    text-decoration: none;
+}
+.cancel-link:hover {
+    text-decoration: underline;
+}
+.button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+.button:hover {
+    background-color: #218838;
+}
+</style>
+{% endblock %}

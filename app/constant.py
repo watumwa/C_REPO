@@ -3,7 +3,13 @@
 GENDER_CHOICES = [
     ('M', 'Male'),
     ('F', 'Female'),
+]
 
+MARITAL_STATUS_CHOICES = [
+    ('Single', 'Single'),
+    ('Married', 'Married'),
+    ('Divorced', 'Divorced'),
+    ('Widowed', 'Widowed'),
 ]
 
 NATIONALITY_CHOICES = [
@@ -14,6 +20,7 @@ NATIONALITY_CHOICES = [
     ('SS', 'South Sudanese'),
     ('OT', 'Other'),
 ]
+
 # ===============================
 #   USER ROLES
 # ===============================
@@ -25,13 +32,13 @@ USER_ROLES = [
 ]
 
 # ===============================
-#   CONTACT CATEGORIES
+#   MEMBER CATEGORIES
 # ===============================
-CONTACT_CATEGORIES = [
+MEMBER_CATEGORIES = [
     ('Member', 'Member'),
-    ('Visitor', 'Visitor'),
-    ('Donor', 'Donor'),
+    ('Pastor', 'Pastor'),
     ('Staff', 'Staff'),
+
 ]
 
 # ===============================
@@ -45,9 +52,29 @@ COMMUNICATION_TYPES = [
 ]
 
 # ===============================
+#   EVENT TYPES
+# ===============================
+EVENT_TYPES = [
+    ('Sunday Service', 'Sunday Service'),
+    ('Fellowship', 'Fellowship'),
+    ('Special Event', 'Special Event'),
+    ('Meeting', 'Meeting'),
+]
+
+# ===============================
+#   ATTENDANCE STATUS
+# ===============================
+ATTENDANCE_STATUS = [
+    ('Present', 'Present'),
+    ('Absent', 'Absent'),
+    ('Late', 'Late'),
+]
+
+# ===============================
 #   CSV EXPORT SETTINGS
 # ===============================
-CSV_HEADERS = ['Name', 'Phone', 'Email', 'Category', 'Owner']
+MEMBER_CSV_HEADERS = ['Full Name', 'Contact 1', 'Contact 2', 'Gender', 'Email', 'Category']
+COMMUNICATION_CSV_HEADERS = ['Recipient', 'Type', 'Message', 'Sent At', 'Sender']
 
 # ===============================
 #   DATABASE MAINTENANCE SETTINGS
