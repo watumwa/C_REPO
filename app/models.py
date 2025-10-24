@@ -9,7 +9,7 @@ class Member(models.Model):
     contact_1 = models.CharField(max_length=20, blank=True)
     contact_2 = models.CharField(max_length=20, blank=True)
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
-    email = models.EmailField(blank=True)
+    email = models.EmailField(blank=True, null=True)
     category = models.CharField(max_length=50, choices=MEMBER_CATEGORIES, default='Member')
     profile_photo = models.ImageField(upload_to='profile_photos/', blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
